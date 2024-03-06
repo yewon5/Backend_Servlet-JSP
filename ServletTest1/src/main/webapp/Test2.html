@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>성적 처리 프로그램</h1>
+	<form action="/ServletTest1/sungjuk" method="GET">
+		국어 : <input type="text" name="kor" required="required"/><br><br>
+		영어 : <input type="text" name="eng" required="required"/><br><br>
+		수학 : <input type="text" name="mat" required="required"/><br><br>
+		<input type="radio" name="calc" value="sum" checked="checked">총점 &nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="radio" name="calc" value="avg">평균 <br><br>
+		<input type="submit" value="전송"/>
+	</form>
+</body>
+</html>
