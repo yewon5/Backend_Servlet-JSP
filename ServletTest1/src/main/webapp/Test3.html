@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+
+</head>
+<body>
+	<form action="/ServletTest1/paramValues" method="POST">
+		<h2>좋아하는 가수를 입력해 주세요.</h2>
+		<ul>
+			<li><input type="text" name="singer" /></li>
+			<li><input type="text" name="singer" /></li>
+			<li><input type="text" name="singer" /></li>
+			<li><input type="text" name="singer" /></li>
+		</ul>
+		<br><br>
+		
+		<h2>좋아하는 음식을 선택해 주세요.</h2>
+		<input type="checkbox" name="food" value="짜장면" /> 짜장면<br>
+		<input type="checkbox" name="food" value="쌀국수" /> 쌀국수<br>
+		<input type="checkbox" name="food" value="뇨끼" /> 뇨끼<br>
+		<input type="checkbox" name="food" value="삼겹살" /> 삼겹살<br>
+		
+		<br><br>
+		
+		<h2>좋아하는 도시를 선택해 주세요.</h2>
+		<select name="city" multiple="multiple" size="4">
+			<option>서울</option>
+			<option>런던</option>
+			<option>파리</option>
+			<option>헬싱키</option>
+		</select>
+	
+		<br><br>
+		<input type="submit" value="전송"/>
+	</form>
+</body>
+</html>

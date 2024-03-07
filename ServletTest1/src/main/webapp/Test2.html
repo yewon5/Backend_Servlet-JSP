@@ -1,18 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
+	<meta charset="EUC-KR">
+	<title>Insert title here</title>
+	<script>
+		function nullCheck(){
+			//이름이 복수형이라 여러개를 묶어서 배열로 리턴한다.
+			let kor = document.getElementsByName("kor")[0].value;
+			let eng = document.getElementsByName("eng")[0].value;
+			let mat = document.getElementsByName("mat")[0].value;
+			
+			console.log(kor, eng, mat);
+			
+			if(kor === "" || eng === "" || mat === ""){
+				alert("빈칸을 채워주세요");
+				return false; //빈칸이 있다면 서버로 보내지 않고 중단시켜야한다.
+			}
+			
+			return true;
+		}
+	</script>
 </head>
 <body>
 	<h1>성적 처리 프로그램</h1>
-	<form action="/ServletTest1/sungjuk" method="GET">
-		국어 : <input type="text" name="kor" required="required"/><br><br>
-		영어 : <input type="text" name="eng" required="required"/><br><br>
-		수학 : <input type="text" name="mat" required="required"/><br><br>
+	<form action="/ServletTest1/sungjuk" method="GET" onSubmit="return nullCheck()">
+		국어 : <input type="text" name="kor" /><br><br>
+		영어 : <input type="text" name="eng" /><br><br>
+		수학 : <input type="text" name="mat" /><br><br>
 		<input type="radio" name="calc" value="sum" checked="checked">총점 &nbsp;&nbsp;&nbsp;&nbsp;
 		<input type="radio" name="calc" value="avg">평균 <br><br>
-		<input type="submit" value="전송"/>
+		<input type="submit" value="전송" />
 	</form>
 </body>
 </html>

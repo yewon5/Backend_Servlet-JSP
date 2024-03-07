@@ -21,7 +21,7 @@
   	<url-pattern>/test1</url-pattern>
   </servlet-mapping>
   
-  
+<!-- ***************************************************** -->
   <servlet>
   	<servlet-name>test2</servlet-name> <!-- 변수명  --> 
   	<servlet-class>sungjukServlet</servlet-class>
@@ -30,5 +30,49 @@
   <servlet-mapping>
   	<servlet-name>test2</servlet-name>
   	<url-pattern>/sungjuk</url-pattern> <!-- 사용자가 쓰는 주소명  -->
+  </servlet-mapping>
+  
+<!-- ***************************************************** -->
+  <servlet>
+  	<servlet-name>test3</servlet-name> <!-- 변수명  --> 
+  	<servlet-class>Test3Servlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>test3</servlet-name>
+  	<url-pattern>/paramValues</url-pattern> <!-- 사용자가 쓰는 주소명  -->
+  </servlet-mapping>
+  
+<!-- ***************************************************** -->
+  <servlet>
+  	<servlet-name>test0</servlet-name> <!-- 변수명  --> 
+  	<servlet-class>Test0Servlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>test0</servlet-name>
+  	<url-pattern>/test0</url-pattern> <!-- 사용자가 쓰는 주소명  -->
+  </servlet-mapping>
+  
+<!-- ***************************************************** -->  
+  <servlet>
+  	<servlet-name>test4</servlet-name> <!-- 변수명  --> 
+  	<servlet-class>LifeCycleTest</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>test4</servlet-name>
+  	<url-pattern>/test4</url-pattern> <!-- 사용자가 쓰는 주소명  -->
+  </servlet-mapping>
+  
+<!-- ***************************************************** -->  
+  <servlet>
+  	<servlet-name>test5</servlet-name> <!-- 변수명  --> 
+  	<servlet-class>RequestHeaderInfo</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>test5</servlet-name>
+  	<url-pattern>/test5</url-pattern> <!-- 사용자가 쓰는 주소명  -->
   </servlet-mapping>
 </web-app>
