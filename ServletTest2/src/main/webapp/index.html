@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2> 쿠키 사용하기</h2>
+	<form action="/ServletTest2/Cook">
+		이름 : <input type="text" name="name" /><br><br>
+		주소 : <input type="text" name="addr" /><br><br>
+		<input type="submit" value="전송" />
+	</form>
+	
+	<br><br>
+	<a href="/ServletTest2/CookConfirm">쿠키 확인하기</a>
+	
+	<hr>
+	
+	<h2> 세션 사용하기</h2>
+	<form action="/ServletTest2/sess">
+		이름 : <input type="text" name="name" /><br><br>
+		주소 : <input type="text" name="addr" /><br><br>
+		<input type="submit" value="전송" />
+	</form>
+	
+	<br><br>
+	<a href="/ServletTest2/sessConfirm">세션 확인하기</a>
+</body>
+</html>
