@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>직원 추가</h1>
+	<form action="addEmp_proc.jsp" method="post">
+		<table border="1">
+			<tr>
+				<th>아이디</th>
+				<td><input type="text" name="e_id"/></td>
+			</tr>
+			<tr>
+				<th>이름</th>
+				<td><input type="text" name="e_name"/></td>
+			</tr>
+			<tr>
+				<th>패스워드</th>
+				<td><input type="password" name="e_pass"/></td>
+			</tr>
+			<tr>
+				<th>근무지</th>
+				<td>
+					<select name="e_address">
+						<option>서울</option>
+						<option>광주</option>
+						<option>부산</option>
+						<option>제주</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<input type="submit" value="전송"/>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="reset" value="취소"/>
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
