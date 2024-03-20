@@ -8,9 +8,9 @@
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/ojdbc8-23.3.0.23.09.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/servlet-api.jar"/>
-	<classpathentry kind="lib" path="C:/Users/acorn/git/Eclipse_Servlet-JSP/DBTest/src/main/webapp/WEB-INF/lib/ojdbc8-23.3.0.23.09.jar"/>
 	<classpathentry kind="lib" path="C:/Users/acorn/git/Eclipse_Servlet-JSP/DBTest/src/main/webapp/WEB-INF/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="C:/Users/acorn/git/Eclipse_Servlet-JSP/DBTest/src/main/webapp/WEB-INF/lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/ojdbc6.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

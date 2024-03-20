@@ -1,68 +1,79 @@
-<%@ page contentType="text/html; charset=EUC-KR"%>
+<%@page import="mybean.board.BoardDto"%>
+<%@page import="mybean.board.BoardDao"%>
+<%@ page contentType="text/html; charset=utf-8"%>
 <html>
 <head> <title>JSPBoard</title>
 <link href="style.css" rel="stylesheet" type="text/css">
 <script>
 	function check() {
-	   if (document.form.pass.value == "") {
-		 alert("¼öÁ¤À» À§ÇØ ÆĞ½º¿öµå¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
-	     form.pass.focus();
+	   if (document.form.b_pass.value == "") {
+		 alert("ìˆ˜ì •ì„ ìœ„í•´ íŒ¨ìŠ¤ì›Œë“œë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
+	     form.b_pass.focus();
 		 return false;
-		 }
+		}
 	   document.form.submit();
 	}
 </script>
 </head>
+<%
+	int b_num = Integer.parseInt(request.getParameter("b_num")); //ê¸€ ë²ˆí˜¸ ë°›ì•„ì˜¤ê¸°
+%>
+<!-- BoardDao.java - getBoardë©”ì„œë“œë¥¼ í˜¸ì¶œí•˜ê¸° ìœ„í•œ ê°ì²´ ìƒì„± -->
+<jsp:useBean id="dao" class="mybean.board.BoardDao" />
+<%
+	BoardDto dto = dao.getBoard(b_num); //getBoard(b_num)ë©”ì„œë“œë¥¼ í˜¸ì¶œí•˜ì—¬ dtoê°ì²´ì— ì €ì¥
+%>
 <body>
 <center>
 <br><br>
 <table width=460 cellspacing=0 cellpadding=3>
   <tr>
-   <td bgcolor=#FF9018  height=21 align=center class=m>¼öÁ¤ÇÏ±â</td>
+   <td bgcolor=#FF9018  height=21 align=center class=m>ìˆ˜ì •í•˜ê¸°</td>
   </tr>
 </table>
 
 <form name=form method=post action="UpdateProc.jsp" >
+<input type="hidden" name="b_num" value="<%=b_num %>" />
 <table width=70% cellspacing=0 cellpadding=7>
  <tr>
   <td align=center>
    <table border=0>
     <tr>
-     <td width=20%>¼º ¸í</td>
+     <td width=20%>ì„± ëª…</td>
      <td width=80%>
-	  <input type=text name=name size=30 maxlength=20 value="">
+	  <input type=text name="b_name" size=30 maxlength=20 value="<%=dto.getB_name() %>">
 	 </td>
 	</tr>
     <tr>
      <td width=20%>E-Mail</td>
      <td width=80%>
-	  <input type=text name=email size=30 maxlength=30 value="">
+	  <input type=text name="b_email" size=30 maxlength=30 value="<%=dto.getB_email() %>">
 	 </td>
     </tr>
 	<tr>
-     <td width=20%>Á¦ ¸ñ</td>
+     <td width=20%>ì œ ëª©</td>
      <td width=80%>
-	  <input type=text name=subject size=50 maxlength=50 value="">
+	  <input type=text name="b_subject" size=50 maxlength=50 value="<%=dto.getB_subject() %>">
 	 </td>
     <tr>
-     <td width=20%>³» ¿ë</td>
+     <td width=20%>ë‚´ ìš©</td>
      <td width=80%>
-	  <textarea name=content rows=10 cols=50></textarea>
+	  <textarea name="b_content" rows=10 cols=50><%=dto.getB_content() %></textarea>
 	 </td>
     </tr>
 	<tr>
-     <td width=20%>ºñ¹Ğ ¹øÈ£</td> 
-     <td width=80%><input type=password name=pass size=15 maxlength=15>
-      ¼öÁ¤½Ã¿¡´Â ºñ¹Ğ¹øÈ£°¡ ÇÊ¿äÇÕ´Ï´Ù.</td>
+     <td width=20%>ë¹„ë°€ ë²ˆí˜¸</td> 
+     <td width=80%><input type=password name="b_pass" size=15 maxlength=15>
+      ìˆ˜ì •ì‹œì—ëŠ” ë¹„ë°€ë²ˆí˜¸ê°€ í•„ìš”í•©ë‹ˆë‹¤.</td>
     </tr>
 	<tr>
      <td colspan=2 height=5><hr size=1></td>
     </tr>
 	<tr>
      <td colspan=2>
-	  <input type=Button value="¼öÁ¤¿Ï·á" onClick="check()">
-      <input type=reset value="´Ù½Ã¼öÁ¤"> 
-      <input type=button value="µÚ·Î" onClick="history.back()">
+	  <input type=Button value="ìˆ˜ì •ì™„ë£Œ" onClick="check()">
+      <input type=reset value="ë‹¤ì‹œìˆ˜ì •"> 
+      <input type=button value="ë’¤ë¡œ" onClick="history.back()">
 	 </td>
     </tr> 
    </table>

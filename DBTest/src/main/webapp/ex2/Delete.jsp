@@ -1,36 +1,50 @@
-<%@ page contentType="text/html; charset=EUC-KR" %>
+<%@page import="mybean.board.BoardDto"%>
+<%@ page contentType="text/html; charset=utf-8" %>
 
 <html>
 <head><title>JSPBoard</title>
 <link href="style.css" rel="stylesheet" type="text/css">
 <script>
 	function check() {
-		if (document.form.pass.value == "") {
-		alert("ÆĞ½º¿öµå¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
-		form.pass.focus();
-		return false;
+		if (document.form.b_pass.value == "") {
+			alert("íŒ¨ìŠ¤ì›Œë“œë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
+			form.b_pass.focus();
+			return false;
 		}
 		document.form.submit();
 	}
 </script>
 </head>
+
+<jsp:useBean id="dao" class="mybean.board.BoardDao" />
+<%
+    String b_num = request.getParameter("b_num");
+    
+    if (b_num != null) {
+        int num = Integer.parseInt(b_num);
+        dao.deleteBoard(num); // ë¹„ë°€ë²ˆí˜¸ë¥¼ í™•ì¸í•˜ì§€ ì•Šê³  ë°”ë¡œ ê¸€ì„ ì‚­ì œí•©ë‹ˆë‹¤.
+        response.sendRedirect("List.jsp");
+    }
+%>
+
 <body>
 <center>
 <br><br>
 <table width=50% cellspacing=0 cellpadding=3>
  <tr>
   <td bgcolor=#dddddd height=21 align=center>
-      »ç¿ëÀÚÀÇ ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä.</td>
+      ì‚¬ìš©ìì˜ ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ ì£¼ì„¸ìš”.</td>
  </tr>
 </table>
 <table width=70% cellspacing=0 cellpadding=2>
 <form name=form method=post action="Delete.jsp" >
+<input type="hidden" name="b_num" value="<%=b_num%>"/>
  <tr>
   <td align=center>
    <table align=center border=0 width=91%>
     <tr> 
      <td align=center>  
-	  <input type=password name="pass" size=17 maxlength=15>
+	  <input type=password name="b_pass" size=17 maxlength=15>
 	 </td> 
     </tr>
     <tr>
@@ -38,9 +52,9 @@
     </tr>
     <tr>
      <td align=center>
-	  <input type=button value="»èÁ¦¿Ï·á" onClick="check()"> 
-      <input type=reset value="´Ù½Ã¾²±â"> 
-      <input type=button value="µÚ·Î" onClick="history.back()">
+	  <input type=button value="ì‚­ì œì™„ë£Œ" onClick="check()"> 
+      <input type=reset value="ë‹¤ì‹œì“°ê¸°"> 
+      <input type=button value="ë’¤ë¡œ" onClick="history.back()">
 	 </td>
     </tr> 
    </table>

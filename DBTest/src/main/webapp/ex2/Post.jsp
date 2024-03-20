@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=EUC-KR" %>
+<%@ page contentType="text/html; charset=utf-8" %>
 <html>
 <head><title>JSPBoard</title>
 <link href="style.css" rel="stylesheet" type="text/css">
@@ -8,45 +8,46 @@
 <br><br>
 <table width=80% cellspacing=0 cellpadding=3>
  <tr>
-  <td bgcolor=84F399 height=25 align=center>±Û¾²±â</td>
+  <td bgcolor=84F399 height=25 align=center>ê¸€ì“°ê¸°</td>
  </tr>
 </table>
 <br>
 <table width=80% cellspacing=0 cellpadding=3 align=center>
 <form name=post method=post action="PostProc.jsp" >
+	<input type="hidden" name="b_ip" value="<%=request.getRemoteAddr() %>" />
  <tr>
   <td align=center>
    <table border=0 width=100% align=center>
     <tr>
-     <td width=10%>¼º ¸í</td>
-     <td width=90%><input type=text name=name size=10 maxlength=8></td>
+     <td width=10%>ì„± ëª…</td>
+     <td width=90%><input type=text name="b_name" size=10 maxlength=8 required="required"></td>
     </tr>
     <tr>
 	 <td width=10%>E-Mail</td>
-	 <td width=90%><input type=text name=email size=30 maxlength=30></td>
+	 <td width=90%><input type=text name="b_email" size=30 maxlength=30 required="required"></td>
     </tr>
     <tr>
-     <td width=10%>È¨ÆäÀÌÁö</td>
-     <td width=90%><input type=text name=homepage size=40 maxlength=30></td>
+     <td width=10%>í™ˆíŽ˜ì´ì§€</td>
+     <td width=90%><input type=text name="b_homepage" size=40 maxlength=30 required="required"></td>
     </tr>
     <tr>
-     <td width=10%>Á¦ ¸ñ</td>
-     <td width=90%><input type=text name=subject size=50 maxlength=30></td>
+     <td width=10%>ì œ ëª©</td>
+     <td width=90%><input type=text name="b_subject" size=50 maxlength=30 required="required"></td>
     </tr>
     <tr>
-     <td width=10%>³» ¿ë</td>
-     <td width=90%><textarea name=content rows=10 cols=50></textarea></td>
+     <td width=10%>ë‚´ ìš©</td>
+     <td width=90%><textarea name="b_content" rows=10 cols=50 required="required"></textarea></td>
     </tr>
     <tr>
-     <td width=10%>ºñ¹Ð ¹øÈ£</td> 
-     <td width=90% ><input type=password name=pass size=15 maxlength=15></td>
+     <td width=10%>ë¹„ë°€ ë²ˆí˜¸</td> 
+     <td width=90% ><input type=password name="b_pass" size=15 maxlength=15 required="required"></td>
     </tr>
     <tr>
      <td colspan=2><hr size=1></td>
     </tr>
     <tr>
-     <td><input type=submit value="µî·Ï" >&nbsp;&nbsp;
-         <input type=reset value="´Ù½Ã¾²±â">&nbsp;&nbsp;
+     <td><input type=submit value="ë“±ë¡" >&nbsp;&nbsp;
+         <input type=reset value="ë‹¤ì‹œì“°ê¸°">&nbsp;&nbsp;
      </td>
     </tr> 
    </table>
