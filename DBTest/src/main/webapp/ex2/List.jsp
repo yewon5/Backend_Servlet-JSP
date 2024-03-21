@@ -66,7 +66,7 @@
 	</td>
 	<td align=right>
 		<a href="Post.jsp">[글쓰기✏️]</a>
-		<a href="List.jsp">[처음으로]</a>
+		<a href="javascript:list()">[처음으로]</a>
 	</td>
 </tr>
 </table>

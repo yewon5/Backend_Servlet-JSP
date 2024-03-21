@@ -7,9 +7,9 @@
 <script>
 	function check() {
 		if (document.form.b_pass.value == "") {
-			alert("패스워드를 입력하세요.");
-			form.b_pass.focus();
-			return false;
+		alert("패스워드를 입력하세요.");
+		form.b_pass.focus();
+		return false;
 		}
 		document.form.submit();
 	}
@@ -18,13 +18,26 @@
 
 <jsp:useBean id="dao" class="mybean.board.BoardDao" />
 <%
-    String b_num = request.getParameter("b_num");
-    
-    if (b_num != null) {
-        int num = Integer.parseInt(b_num);
-        dao.deleteBoard(num); // 비밀번호를 확인하지 않고 바로 글을 삭제합니다.
-        response.sendRedirect("List.jsp");
-    }
+	String b_pass = request.getParameter("b_pass");
+	String b_num = request.getParameter("b_num");
+	
+	if(b_pass != null) {
+		int num = Integer.parseInt(b_num);
+		BoardDto original =  dao.getBoard(num);
+		
+		if(b_pass.equals(original.getB_pass())){
+			dao.deleteBoard(num);
+			response.sendRedirect("List.jsp");
+		}
+		else{
+%>
+		<script>
+			alert("비밀번호가 틀렸습니다.");
+			history.back();
+		</script>
+<%	
+		}
+	}
 %>
 
 <body>

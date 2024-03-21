@@ -45,12 +45,16 @@
     <tr>
      <td colspan=2><hr size=1></td>
     </tr>
+   </table>
+   <form>
+	<table align="left">
     <tr>
      <td><input type=submit value="등록" >&nbsp;&nbsp;
          <input type=reset value="다시쓰기">&nbsp;&nbsp;
-     </td>
-    </tr> 
+	 </td>
+	</tr>
    </table>
+   </form>
   </td>
  </tr>
 </form> 

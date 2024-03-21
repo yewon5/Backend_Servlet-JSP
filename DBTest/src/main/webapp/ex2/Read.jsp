@@ -60,7 +60,7 @@
  <tr>
   <td align=center colspan=2> 
 	<hr size=1>
-	[ <a href="javascript:list()">목 록</a> | 
+	[ <a href="List.jsp">목 록</a> | 
 	<a href="Reply.jsp?b_num=<%=b_num%>">답 변</a> |
 	<a href="Update.jsp?b_num=<%=b_num%>">수 정</a> |
 	<a href="Delete.jsp?b_num=<%=b_num%>">삭 제</a> ]<br>
