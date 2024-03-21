@@ -14,3 +14,4 @@
 	<%
 		dao.setBoard(dto); //setBoard 호출하여 id="dto"를 매개변수로 전달하여 데이터 저장
 		response.sendRedirect("List.jsp"); //페이지 강제로 이동
+	%>
