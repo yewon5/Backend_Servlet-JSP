@@ -229,6 +229,16 @@ public class BoardDao {
 			freeConn();
 		}
 	}
+	
+	//답글 들여쓰기 기능
+	public String useDepth(int depth) {
+		String result = "";
+		for(int i=0; i<depth*3; i++) { //*3 공백을 얼만큼 생기게 할 것인지
+			result += "&nbsp;";
+		}
+		
+		return result;
+	}
 }
 	
 

@@ -45,7 +45,7 @@
     </tr>
     <tr>
 	     <td width=10%>제 목</td>
-	     <td width=90%><input type=text name="b_subject" size=50 maxlength=30 value="↳ <%=dto.getB_subject() %> 답변 : " required="required"></td>
+	     <td width=90%><input type="text" name="b_subject" size="50" maxlength="30" value="<img src='re.gif'>" required="required"></td>
     </tr>
     <tr>
 	     <td width=10%>내 용</td>

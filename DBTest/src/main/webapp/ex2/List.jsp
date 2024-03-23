@@ -5,7 +5,7 @@
 <!-- 페이징을 위한 인스턴스 변수 선언 -->
 <%
 	int totalRecord = 0; //총 글의 개수
-	int numPerPage = 5; //한 페이지당 보여지는 글의 개수
+	int numPerPage = 8; //한 페이지당 보여지는 글의 개수
 	int totalPage = 0; //총 페이지 수 
 	int nowPage = 0; //현재 페이지 번호
 	int beginPerPage = 0; //페이지별 시작 번호. 1페이지당 5개씩 등록할때, 2페이지는 6번부터 시작할 수 있도록
@@ -77,7 +77,7 @@
 		<table border=0 width=100% cellpadding=2 cellspacing=0>
 			<tr align=center bgcolor=#D0D0D0 height=120%>
 				<td> 번호 </td>
-				<td> 제목 </td>
+				<td align=left> 제목 </td>
 				<td> 이름 </td>
 				<td> 날짜 </td>
 				<td> 조회수👀 </td>
@@ -92,8 +92,9 @@
 			BoardDto dto = (BoardDto)list.get(i);
 %>
 			<tr align=center bgcolor="white" height=120%>
-				<td><%=dto.getB_num()%></td>
-				<td><a href="Read.jsp?b_num=<%=dto.getB_num()%>"><%=dto.getB_subject()%></td>
+				
+				<td ><%=dto.getB_num()%></td>
+				<td align=left><%=dao.useDepth(dto.getDepth()) %><a href="Read.jsp?b_num=<%=dto.getB_num()%>"><%=dto.getB_subject()%></td>
 				<td><%=dto.getB_name()%></td>
 				<td><%=dto.getB_regdate()%></td>
 				<td><%=dto.getB_count()%></td>
