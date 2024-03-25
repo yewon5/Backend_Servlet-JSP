@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import mybean.model.DepartmentBean;
 
+//컨트롤러(서블릿)
 @WebServlet("/depart") //http://localhost:8080/MVCTest/depart
 public class DepartmentServlet extends HttpServlet {
 
