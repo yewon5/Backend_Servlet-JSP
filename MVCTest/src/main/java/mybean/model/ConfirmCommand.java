@@ -14,7 +14,7 @@ public class ConfirmCommand implements ICommand{
 		dto.setEmail(req.getParameter("email"));
 		
 		req.setAttribute("dto", dto); //setAttribute에 넣어놓은걸 registerConfirm에서 꺼내오기
-		
+		//특정 경로 어느페이지로 리턴할 것인지.
 		return"/WEB-INF/view/member/registerConfirm.jsp";
 	}
 }

@@ -7,7 +7,7 @@
 </head>
 <body>
 	<h1>가입 완료</h1>
-	가입을 축하합니다.<br>
-	<a href="register.html">메인으로</a>
+	가입을 축하합니다<br>
+	<a href="index.html">메인으로</a>
 </body>
 </html>

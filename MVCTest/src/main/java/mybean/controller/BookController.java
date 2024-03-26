@@ -50,12 +50,12 @@ public class BookController extends HttpServlet{
 		else if (command.equals("checkout")) {
 			url = "/WEB-INF/view/checkout.jsp";
 		}
-		else if (command.equals("del")) {
-			url = "/WEB-INF/view/del.jsp";
+		else if (command.equals("del")) { //어디에서 삭제? bookList에서. 무엇을? bookList에는 순서대로 저장되기때문에 순서를 정해주면 됨
+			int book = Integer.parseInt(req.getParameter("cnt"));
 			
-			//if() {
-				
-			//}
+			bookList.remove(book);
+			
+			url = "/WEB-INF/view/bookshop.jsp";
 		}
 		
 		
