@@ -44,6 +44,7 @@ public class ELTestServlet extends HttpServlet{
 		req.setAttribute("won", won);
 		
 		String[] comment = {"이 사이트는 매우 훌륭합니다.", "정말 좋은 사이트입니다", "자주 찾는 사이트가 될것 같아요."};
+		req.setAttribute("comment", comment);
 		
 		ArrayList<String> movies = new ArrayList<String>();
 		movies.add("트와일라잇");
