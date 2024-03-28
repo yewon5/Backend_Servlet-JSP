@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<script>
+	function fnNewsList(){
+		let httpRequest = new XMLHttpRequest();
+		
+		httpRequest.open("GET", "basic2.jsp", true); //HTTP 요청 방식, 요청보낼 URL, true:비동기적
+		httpRequest.onreadystatechange = function(){ //클라이언트와 서버사이에 응답 상황이 바뀔때마다 호출
+			if(httpRequest.readyState == 4){ //서버로부터 받아온 문자를 바로 꺼내옴. 비동기 요청. 주소/페이지 이동이 아님.
+				if(httpRequest.status == 200){ 
+					let data = httpRequest.responseText;
+					let div = document.getElementById("newsList");
+					
+					let news = data.split(":")
+					
+					for(let i=0; i<news.length; i++){
+						div.innerHTML += news[i] + "<br>";
+					}
+				}
+				else {
+					alert(httpRequest.status);
+				}
+			}
+		}
+		httpRequest.send(null);
+	}
+	
+	//무명함수
+	window.onload = function(){ 
+		fnNewsList()
+
+	};
+</script>
+<body>
+	<h2>오늘의 뉴스</h2>
+	<div id="newsList"></div>
+</body>
+</html>
