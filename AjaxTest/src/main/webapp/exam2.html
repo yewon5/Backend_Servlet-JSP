@@ -11,7 +11,7 @@
 		
 		httpRequest.open("GET", "/AjaxTest/dynamic.do", true); 
 		httpRequest.onreadystatechange = callback1; //함수의 주소를 알려주고 상황에 따라서 호출
-		httpRequest.send(null); //5초마다 실행되야함
+		httpRequest.send(null); //5초마다 실행돼야함
 	}
 	
 	function callback1(){
@@ -39,7 +39,7 @@
 				}
 			}
 		}
-		httpRequest.send(null); //5초마다 실행되야함
+		httpRequest.send(null); //5초마다 실행돼야함
 	}
 	
 	window.onload = function() {
