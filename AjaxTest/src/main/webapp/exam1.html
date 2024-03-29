@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script>
+	function fnSubmit(){
+		let httpRequest = new XMLHttpRequest();
+		let param = document.getElementById("birthDate").value;
+		
+		httpRequest.open("GET", "/AjaxTest/valid.do?birthDate=" + param, true); 
+		httpRequest.onreadystatechange = function(){ 
+			if(httpRequest.readyState == 4){ 
+				if(httpRequest.status == 200){ 
+					let data = httpRequest.responseXML;
+					let span = document.getElementById("dateMessage");
+					
+					span.innerHTML = data.getElementsByTagName("message")[0].firstChild.nodeValue;
+				}
+				else {
+					alert(httpRequest.status);
+				}
+			}
+		}
+		httpRequest.send(null);
+	}
+
+</script>
+</head>
+<body>
+	<h1>AJAX를 이용한 유효성 검사</h1>
+	생년월일 : <input type="text" size="10" id="birthDate" placeholder="yyyy/mm/dd" onchange="fnSubmit()"/>
+	<span id="dateMessage" style="color:red"></span>
+	<br><br>
+	이름 : <input type="text" id="name" />
+</body>
+</html>

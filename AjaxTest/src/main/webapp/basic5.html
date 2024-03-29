@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script>
+	function fnSubmit(){
+		let httpRequest = new XMLHttpRequest();
+		
+		httpRequest.open("GET", "basic5.jsp", true); 
+		httpRequest.onreadystatechange = function(){ 
+			if(httpRequest.readyState == 4){ 
+				if(httpRequest.status == 200){ 
+					let doc = eval("(" + httpRequest.responseText + ")"); //JSON을 Text로 받고, eval함수을 사용하여 JSON 형식의 문자열을 자바스크립트 객체로 변환한다.
+					
+					if(doc.code == "success"){
+						let mem = doc.data.member;
+						alert(mem.name + ", " + mem.id + ", " + mem.age + ", " + mem.hobby[0]);
+					}
+				}
+				else {
+					alert(httpRequest.status);
+				}
+			}
+		}
+		httpRequest.send(null);
+	}
+	
+	//무명함수 준비
+	window.onload = function() {
+		fnSubmit();
+	}
+</script>
+</head>
+<body>
+	<h1>서버로부터 JSON타입의 데이터를 받는 예제</h1>
+</body>
+</html>
