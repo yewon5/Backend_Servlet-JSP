@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script>
+	let httpRequest = null;
+
+	function fnSubmit1(){
+		httpRequest = new XMLHttpRequest();
+		
+		httpRequest.open("GET", "/AjaxTest/dynamic.do", true); 
+		httpRequest.onreadystatechange = callback1; //함수의 주소를 알려주고 상황에 따라서 호출
+		httpRequest.send(null); //5초마다 실행되야함
+	}
+	
+	function callback1(){
+		if(httpRequest.readyState == 4){ 
+			if(httpRequest.status == 200){ 
+				setInterval(fnSubmit2, 5000); //5초간격으로 서브밋2호출
+			}
+			else {
+				alert(httpRequest.status);
+			}
+		}
+	}
+	//5초마다 호출되는 함수
+	function fnSubmit2(){
+		httpRequest = new XMLHttpRequest();
+		
+		httpRequest.open("GET", "/AjaxTest/dynamic.do", true); 
+		httpRequest.onreadystatechange = function(){
+			if(httpRequest.readyState == 4){ 
+				if(httpRequest.status == 200){ 
+					alert(httpRequest.responseText);
+				}
+				else {
+					alert(httpRequest.status);
+				}
+			}
+		}
+		httpRequest.send(null); //5초마다 실행되야함
+	}
+	
+	window.onload = function() {
+		fnSubmit1();
+	}
+</script>
+</head>
+<body>
+	<h1>이 페이지는 자동으로 업데이트 됩니다.</h1>
+	이 페이지는 <span id="time">5</span>초 후에 갱신됩니다.
+	<br><br>
+	<tabel id="dynamicUpdateArea">
+		<tbody>
+			<tr id="row"><td></td></tr>
+		</tbody>
+	</tabel>
+	
+	<div id="test"></div>
+</body>
+</html>
+
+<!-- 
+	1. 카운터가 5까지 증가후 다시 1부터 시작할 수 있게 처리
+	2. 리셋버튼을 누르면 다시 1부터 시작할 수 있게 처리
+	3. 업데이트 시간을 변경할 수 있게 처리
+	4. 메세지를 화면에 출력
+ -->

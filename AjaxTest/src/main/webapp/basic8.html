@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<script>
+	function fnMember(){
+		let httpRequest = new XMLHttpRequest();
+		let userNum = document.getElementById("userNum").value;
+		
+		httpRequest.open("POST", "basic3.jsp", true); //POST방식에선 url에 ?param값을 넣을 수 없다.
+		httpRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //헤더정보 변경
+		httpRequest.onreadystatechange = function(){ 
+			if(httpRequest.readyState == 4){ 
+				if(httpRequest.status == 200){ 
+					let data = httpRequest.responseText;
+					
+					let mems = data.split(",");
+					document.getElementById("userName").value = mems[0];
+					document.getElementById("userGender").value = mems[1];
+					document.getElementById("userAddr").value = mems[2];
+					document.getElementById("userTel").value = mems[3];
+				}
+				else {
+					alert(httpRequest.status);
+				}
+			}
+		}
+		httpRequest.send("userNum=" + userNum); //get방식일땐 null이고, post방식에선 여기에 값을 전달한다
+	}
+</script>
+<body>
+	<h2>회원 정보 조회</h2>
+	회원 번호 : <input type="text" name="userNum" id="userNum" onkeyup="fnMember()"/><br><br>
+	이름 : <input type="text" name="userName" id="userName" /><br><br>
+	성별 : <input type="text" name="userGender" id="userGender" /><br><br>
+	주소 : <input type="text" name="userAddr" id="userAddr" /><br><br>
+	전화번호 : <input type="text" name="userTel" id="userTel" /><br><br>
+</body>
+</html>
